@@ -1,5 +1,4 @@
 import os
-from numpy import array, size
 import train.list_trains as const
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
