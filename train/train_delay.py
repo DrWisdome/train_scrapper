@@ -36,7 +36,7 @@ class TrainDelay(webdriver.Chrome):
                 By.XPATH, '//*[@id="MainContentPlaceHolder"]/table/tbody/tr[1]/td[2]/b/font')
             self.array.append(delay_time_element.text) 
         except:
-            self.array.append('Čakam na informacie vlaku') 
+            self.array.append('0 minút') 
         
     def print_array(self):
         print("Čas: \t", end='')
