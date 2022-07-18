@@ -37,10 +37,3 @@ class TrainDelay(webdriver.Chrome):
             self.array.append(delay_time_element.text) 
         except:
             self.array.append('0 minút') 
-        
-    def print_array(self):
-        print("Čas: \t", end='')
-        print("Meškanie: ")
-        for i in range(len(self.array)):
-            print(const.times_of_trains[i]+ '\t', end='')
-            print(self.array[i])
