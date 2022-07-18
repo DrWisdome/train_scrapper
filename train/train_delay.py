@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 
 class TrainDelay(webdriver.Chrome):
     def __init__(self):
-        op = webdriver.ChromeOptions
+        op = webdriver.ChromeOptions()
         op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
         op.add_argument("--headless")
         op.add_argument("--no-sandbox")
