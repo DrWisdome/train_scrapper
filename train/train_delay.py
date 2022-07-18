@@ -1,5 +1,4 @@
-from encodings import utf_8
-
+import os
 from numpy import array, size
 import train.list_trains as const
 from selenium import webdriver
@@ -8,16 +7,16 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 class TrainDelay(webdriver.Chrome):
-    def __init__(self,teardown=False):
-        self.teardown = teardown
-        super().__init__()
+    def __init__(self):
+        op = webdriver.ChromeOptions
+        op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+        op.add_argument("--headless")
+        op.add_argument("--no-sandbox")
+        op.add_argument("--disable-dev-sh-usage")
+        super().__init__(executable_path= os.environ.get("CHROMEDRIVER_PATH"),chrome_options=op)
         self.implicitly_wait(0.5)
         self.array = []
         #self.maximize_window()
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        if self.teardown:
-            self.quit()
 
     def land_first_page(self):
         self.get(const.BASE_URL)
