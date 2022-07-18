@@ -1,7 +1,7 @@
 import os
 import train.list_trains as const
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
@@ -10,8 +10,8 @@ class TrainDelay(webdriver.Chrome):
         op = webdriver.ChromeOptions()
         op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
         op.add_argument("--headless")
-        op.add_argument("--no-sandbox")
         op.add_argument("--disable-dev-sh-usage")
+        op.add_argument("--no-sandbox")
         super().__init__(executable_path= os.environ.get("CHROMEDRIVER_PATH"),chrome_options=op)
         self.implicitly_wait(0.5)
         self.array = []
