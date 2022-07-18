@@ -1,4 +1,3 @@
-from numpy import array
 from train.train_delay import TrainDelay
 import requests
 import train.list_trains as const
