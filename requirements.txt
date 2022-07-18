@@ -1,8 +1,5 @@
 selenium==3.14.0
-urllib3==1.25.10
 sauceclient>=0.2.1
-Flask==1.1.2
-Werkzeug==2.0.3
 pytest==4.4.0
 pytest-xdist
 requests
